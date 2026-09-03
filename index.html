@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fresno Fancy Faces — Face Painting &amp; Balloon Twisting in Fresno, CA</title>
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=" type="image/png">
+<meta name="description" content="Fresno Fancy Faces: face painting and balloon twisting for birthdays, school festivals, and community events in Fresno, CA and about 60 miles in either direction.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@300;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF3F7;
+    --aubergine:#2E1B3D;
+    --magenta:#A4276B;
+    --magenta-dark:#8A1F5A;
+    --lilac:#C9A8E0;
+    --pink:#F2A7C3;
+    --plum:#5A3F66;
+
+    --page-bg:var(--cream);
+    --surface:var(--cream);
+    --text:var(--plum);
+    --heading:var(--aubergine);
+    --action:var(--magenta);
+    --action-hover:var(--magenta-dark);
+    --rule:rgba(46,27,61,0.16);
+    --rule-soft:rgba(46,27,61,0.10);
+    --nav-bg:#FBF3F7;
+    --nav-frost:rgba(251,243,247,0.82);
+
+    --ease:cubic-bezier(.4,0,.2,1);
+    --measure:44rem;
+  }
+  [data-theme="dark"]{
+    --page-bg:#221430;
+    --surface:#2A1838;
+    --text:#E7DAF0;
+    --heading:#FBF3F7;
+    --action:var(--pink);
+    --action-hover:var(--lilac);
+    --rule:rgba(251,243,247,0.20);
+    --rule-soft:rgba(251,243,247,0.12);
+    --nav-bg:#221430;
+    --nav-frost:rgba(34,20,48,0.82);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--page-bg);
+    color:var(--text);
+    font-family:'Jost',system-ui,sans-serif;
+    font-weight:300;
+    font-size:16px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{
+    font-family:'Marcellus',Georgia,serif;
+    font-weight:400;
+    color:var(--heading);
+    margin:0;
+    letter-spacing:-0.4px;
+    line-height:1.12;
+  }
+  p{margin:0;}
+  img{display:block;max-width:100%;}
+  a{color:var(--action);text-decoration:none;transition:color .2s var(--ease);}
+
+  :focus-visible{
+    outline:2px solid var(--action);
+    outline-offset:3px;
+  }
+
+  .wrap{max-width:1160px;margin:0 auto;padding:0 7vw;}
+  @media(min-width:900px){.wrap{padding:0 56px;}}
+
+  .eyebrow{
+    font-family:'Jost',sans-serif;
+    font-weight:500;
+    font-size:10px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:var(--action);
+    margin:0;
+  }
+
+  /* ---------- Buttons & links ---------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'Jost',sans-serif;
+    font-weight:500;
+    font-size:12px;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    padding:15px 26px;
+    border:1px solid var(--magenta);
+    background:var(--magenta);
+    color:var(--cream);
+    cursor:pointer;
+    transition:background .2s var(--ease),color .2s var(--ease),border-color .2s var(--ease);
+  }
+  .btn:hover{background:var(--magenta-dark);border-color:var(--magenta-dark);color:var(--cream);}
+  .btn--ghost{
+    background:transparent;
+    color:var(--action);
+    border-color:var(--action);
+  }
+  .btn--ghost:hover{background:var(--magenta);border-color:var(--magenta);color:var(--cream);}
+
+  .arrow-link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'Jost',sans-serif;
+    font-weight:500;
+    font-size:12px;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    color:var(--action);
+    transition:gap .2s var(--ease),color .2s var(--ease);
+  }
+  .arrow-link .arw{transition:transform .2s var(--ease);}
+  .arrow-link:hover{gap:14px;color:var(--action-hover);}
+
+  /* ---------- Navigation ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:var(--nav-bg);
+    border-bottom:1px solid var(--rule-soft);
+    transition:background .3s var(--ease),border-color .3s var(--ease);
+  }
+  header.nav.scrolled{
+    background:var(--nav-frost);
+    -webkit-backdrop-filter:blur(12px);
+    backdrop-filter:blur(12px);
+    border-bottom-color:var(--rule);
+  }
+  .nav-row{
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:center;
+    gap:16px;
+    padding:16px 0;
+  }
+  .nav-left{display:flex;align-items:center;gap:18px;}
+  .nav-right{display:flex;align-items:center;justify-content:flex-end;gap:18px;}
+  .wordmark{
+    grid-column:2;
+    text-align:center;
+    font-family:'Marcellus',serif;
+    font-size:clamp(19px,2.6vw,26px);
+    line-height:1;
+    color:var(--heading);
+    letter-spacing:0.5px;
+    white-space:nowrap;
+  }
+  header.nav.scrolled .wordmark{color:var(--heading);}
+  .nav-links{display:none;gap:22px;align-items:center;}
+  .nav-links a{
+    font-family:'Jost',sans-serif;
+    font-weight:500;
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--text);
+  }
+  header.nav.scrolled .nav-links a{color:var(--text);}
+  .nav-links a:hover{color:var(--action);}
+  .nav-cta{
+    display:none;
+    font-family:'Jost',sans-serif;
+    font-weight:500;
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    padding:11px 20px;
+    background:var(--magenta);
+    color:var(--cream);
+    border:1px solid var(--magenta);
+    transition:background .2s var(--ease);
+  }
+  .nav-cta:hover{background:var(--magenta-dark);color:var(--cream);}
+
+  .icon-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Jost',sans-serif;
+    font-weight:500;
+    font-size:10px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    background:transparent;
+    color:var(--text);
+    border:1px solid var(--rule);
+    padding:9px 12px;
+    cursor:pointer;
+    transition:border-color .2s var(--ease),color .2s var(--ease);
+  }
+  #themeToggle{width:36px;height:36px;padding:0;letter-spacing:0;}
+  .theme-icon{display:block;width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+  .icon-btn:hover{border-color:var(--action);color:var(--action);}
+
+  .menu-toggle{display:inline-flex;}
+  .menu-toggle .bars{display:inline-flex;flex-direction:column;gap:3px;}
+  .menu-toggle .bars span{display:block;width:16px;height:1px;background:currentColor;}
+
+  #mobileMenu{
+    display:none;
+    border-top:1px solid var(--rule);
+    background:var(--nav-bg);
+  }
+  #mobileMenu.open{display:block;}
+  #mobileMenu a{
+    display:block;
+    padding:14px 7vw;
+    font-family:'Jost',sans-serif;
+    font-weight:500;
+    font-size:12px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--text);
+    border-bottom:1px solid var(--rule-soft);
+  }
+  #mobileMenu a:hover{color:var(--action);}
+  #mobileMenu a.mm-cta{color:var(--action);}
+
+  @media(min-width:900px){
+    .nav-links{display:flex;}
+    .nav-cta{display:inline-flex;}
+    .menu-toggle{display:none;}
+    #mobileMenu{display:none !important;}
+  }
+
+  /* ---------- Section rhythm ---------- */
+  section{scroll-margin-top:88px;}
+  .band{padding:88px 0;}
+  @media(min-width:900px){.band{padding:120px 0;}}
+  .section-head{display:flex;align-items:baseline;gap:20px;margin-bottom:44px;}
+  .section-head .num{
+    font-family:'Jost',sans-serif;font-weight:500;font-size:11px;
+    letter-spacing:3px;text-transform:uppercase;color:var(--action);flex:none;
+  }
+  .section-head h2{font-size:clamp(28px,4vw,40px);}
+  .section-head .rule{flex:1;height:1px;background:var(--rule);}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:56px 0 0;}
+  .hero-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:center;}
+  @media(min-width:900px){
+    .hero{padding:80px 0 0;}
+    .hero-grid{grid-template-columns:1.05fr 0.95fr;gap:64px;}
+    .hero-media img{height:560px;}
+  }
+  .hero-copy .eyebrow{margin-bottom:22px;}
+  .hero-copy h1{font-size:clamp(38px,6vw,60px);line-height:1.05;letter-spacing:-1px;}
+  .hero-copy p.lead{
+    margin-top:24px;max-width:var(--measure);
+    font-size:18px;line-height:1.7;color:var(--text);
+  }
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px;}
+  .hero-trust{
+    margin:22px 0 0;padding-top:14px;border-top:1px solid var(--rule);
+    font-family:'Jost',sans-serif;font-size:12px;font-weight:500;
+    letter-spacing:1.6px;color:var(--action);
+  }
+  .hero-media{position:relative;}
+  .hero-media img{
+    width:100%;height:clamp(340px,92vw,520px);aspect-ratio:1/1;object-fit:cover;object-position:center 28%;
+    border:1px solid var(--rule);
+  }
+  .hero-media figcaption{
+    margin-top:10px;font-size:12px;letter-spacing:1px;color:var(--text);opacity:.75;
+  }
+
+  /* ---------- Proof strip ---------- */
+  .proof{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-top:72px;}
+  .proof-row{
+    display:grid;grid-template-columns:1fr;
+  }
+  @media(min-width:720px){.proof-row{grid-template-columns:repeat(3,1fr);}}
+  .proof-item{
+    padding:26px 4px;
+    font-family:'Jost',sans-serif;font-weight:500;
+    font-size:12px;letter-spacing:2.5px;text-transform:uppercase;
+    color:var(--heading);
+    display:flex;align-items:center;gap:14px;
+    border-bottom:1px solid var(--rule-soft);
+  }
+  .proof-item:last-child{border-bottom:none;}
+  .proof-item .dot{width:5px;height:5px;background:var(--magenta);flex:none;}
+  @media(min-width:720px){
+    .proof-item{border-bottom:none;border-left:1px solid var(--rule-soft);padding-left:26px;justify-content:flex-start;}
+    .proof-item:first-child{border-left:none;}
+  }
+
+  /* ---------- Services ---------- */
+  .cards{display:grid;grid-template-columns:1fr;gap:1px;background:var(--rule-soft);border:1px solid var(--rule-soft);}
+  @media(min-width:820px){.cards{grid-template-columns:repeat(3,1fr);}}
+  .card{
+    background:var(--surface);
+    padding:36px 32px 32px;
+    display:flex;flex-direction:column;gap:12px;
+    border-bottom:1px solid transparent;
+    transition:border-color .2s var(--ease);
+    min-height:100%;
+  }
+  .card:hover{border-bottom-color:var(--magenta);}
+  .card h3{font-size:26px;color:var(--heading);}
+  .card p{color:var(--text);font-size:15px;line-height:1.65;}
+  .card .arrow-link{margin-top:auto;padding-top:14px;}
+
+  /* ---------- Safety (aubergine) ---------- */
+  .safety{background:var(--aubergine);color:#F2D9E5;}
+  .safety .eyebrow{color:var(--pink);}
+  .safety h2{color:var(--cream);}
+  .safety .section-head .num{color:var(--pink);}
+  .safety .section-head .rule{background:rgba(251,243,247,0.18);}
+  .safety-lead{max-width:var(--measure);color:rgba(242,217,229,0.85);font-size:18px;margin-bottom:48px;}
+  .steps{display:grid;grid-template-columns:1fr;gap:1px;background:rgba(251,243,247,0.16);border:1px solid rgba(251,243,247,0.16);}
+  @media(min-width:820px){.steps{grid-template-columns:repeat(3,1fr);}}
+  .step{background:var(--aubergine);padding:32px 28px;display:flex;flex-direction:column;gap:14px;}
+  .step .mk{
+    font-family:'Marcellus',serif;font-size:22px;color:var(--lilac);
+    padding-bottom:12px;border-bottom:1px solid rgba(251,243,247,0.16);
+  }
+  .step p{color:rgba(242,217,229,0.88);font-size:15px;line-height:1.7;}
+  .step strong{color:var(--cream);font-weight:500;}
+  .safety-note{
+    margin-top:32px;font-size:13px;letter-spacing:.3px;color:rgba(242,217,229,0.7);
+    max-width:var(--measure);
+  }
+
+  /* ---------- Gallery ---------- */
+  .gallery-intro{max-width:var(--measure);color:var(--text);font-size:18px;margin-bottom:44px;}
+  .grid-masonry{columns:1;column-gap:20px;}
+  @media(min-width:640px){.grid-masonry{columns:2;}}
+  @media(min-width:1000px){.grid-masonry{columns:3;}}
+  .shot{
+    break-inside:avoid;
+    margin:0 0 20px;
+    display:block;width:100%;
+    padding:0;border:1px solid var(--rule);background:var(--surface);
+    text-align:left;cursor:zoom-in;
+    transition:border-color .2s var(--ease);
+    font-family:inherit;color:inherit;
+  }
+  .shot:hover{border-color:var(--magenta);}
+  .shot img{width:100%;height:auto;}
+  .shot figcaption{
+    padding:12px 14px;
+    font-family:'Jost',sans-serif;font-size:13px;letter-spacing:.4px;
+    color:var(--text);
+  }
+
+  /* ---------- Lightbox ---------- */
+  .lightbox{
+    position:fixed;inset:0;z-index:100;
+    display:none;align-items:center;justify-content:center;
+    background:rgba(20,10,28,0.86);
+    padding:5vw;
+  }
+  .lightbox.open{display:flex;}
+  .lightbox-inner{max-width:min(92vw,860px);max-height:90vh;display:flex;flex-direction:column;gap:12px;}
+  .lightbox-inner img{
+    max-width:100%;max-height:78vh;object-fit:contain;
+    border:1px solid rgba(251,243,247,0.24);background:#221430;
+  }
+  .lightbox-cap{color:var(--cream);font-size:13px;letter-spacing:.4px;font-family:'Jost',sans-serif;}
+  .lightbox-close{
+    position:absolute;top:18px;right:18px;
+    background:transparent;border:1px solid rgba(251,243,247,0.5);
+    color:var(--cream);
+    font-family:'Jost',sans-serif;font-weight:500;font-size:11px;letter-spacing:2px;text-transform:uppercase;
+    padding:10px 16px;cursor:pointer;
+    transition:background .2s var(--ease),color .2s var(--ease);
+  }
+  .lightbox-close:hover{background:var(--cream);color:var(--aubergine);}
+
+  /* ---------- Trust ---------- */
+  .remember{display:grid;grid-template-columns:1fr;gap:1px;background:var(--rule-soft);border:1px solid var(--rule-soft);}
+  @media(min-width:820px){.remember{grid-template-columns:repeat(3,1fr);}}
+  .remember .item{background:var(--surface);padding:34px 30px;display:flex;flex-direction:column;gap:12px;}
+  .remember .item h3{font-size:22px;}
+  .remember .item p{font-size:15px;color:var(--text);line-height:1.7;}
+
+  /* ---------- Service area + contact ---------- */
+  .area-grid{display:grid;grid-template-columns:1fr;gap:40px;}
+  @media(min-width:900px){.area-grid{grid-template-columns:1fr 1fr;gap:64px;align-items:start;}}
+  .area-copy p{max-width:var(--measure);font-size:17px;margin-bottom:20px;color:var(--text);}
+  .contact-lines{border-top:1px solid var(--rule);margin-top:8px;}
+  .contact-lines a, .contact-lines .cl{
+    display:flex;justify-content:space-between;gap:16px;align-items:baseline;
+    padding:18px 0;border-bottom:1px solid var(--rule);
+    font-size:16px;color:var(--text);
+  }
+  .contact-lines a:hover{color:var(--action);}
+  .contact-lines .lbl{
+    font-family:'Jost',sans-serif;font-weight:500;font-size:10px;letter-spacing:2.5px;
+    text-transform:uppercase;color:var(--action);flex:none;
+  }
+  .contact-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px;}
+
+  /* ---------- Booking form ---------- */
+  .booking-card{
+    background:var(--surface);border:1px solid var(--rule);padding:36px 32px;
+  }
+  .form-note{
+    font-size:13px;line-height:1.6;color:var(--text);opacity:.85;
+    margin-bottom:26px;padding-bottom:22px;border-bottom:1px solid var(--rule-soft);
+  }
+  .field{display:flex;flex-direction:column;gap:7px;margin-bottom:20px;}
+  .field label{
+    font-family:'Jost',sans-serif;font-weight:500;font-size:11px;letter-spacing:1.5px;
+    text-transform:uppercase;color:var(--heading);
+  }
+  .field label .req{color:var(--magenta);}
+  .field input,.field select,.field textarea{
+    font-family:'Jost',sans-serif;font-weight:300;font-size:15px;
+    color:var(--text);background:var(--page-bg);
+    border:1px solid var(--rule);padding:12px 14px;
+    border-radius:0;
+    transition:border-color .2s var(--ease);
+    width:100%;
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{
+    outline:none;border-color:var(--action);
+  }
+  .field textarea{resize:vertical;min-height:96px;}
+  .field .err{font-size:12px;color:var(--magenta);letter-spacing:.3px;min-height:0;}
+  .field.invalid input,.field.invalid select,.field.invalid textarea{border-color:var(--magenta);}
+  .form-two{display:grid;grid-template-columns:1fr;gap:0;}
+  @media(min-width:560px){.form-two{grid-template-columns:1fr 1fr;gap:20px;}}
+  .form-success{
+    display:none;margin-top:8px;padding:18px 20px;
+    background:var(--pink);color:var(--aubergine);
+    border:1px solid var(--magenta);
+    font-size:14px;line-height:1.6;
+  }
+  .form-success.show{display:block;}
+  .form-success strong{font-weight:500;}
+  .form-success a{color:var(--aubergine);border-bottom:1px solid var(--aubergine);}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--aubergine);color:#E7D3E1;padding:72px 0 40px;}
+  footer .f-word{font-family:'Marcellus',serif;font-size:30px;color:var(--cream);margin-bottom:8px;}
+  footer .f-eyebrow{color:var(--pink);margin-bottom:26px;}
+  footer .f-grid{display:grid;grid-template-columns:1fr;gap:28px;}
+  @media(min-width:720px){footer .f-grid{grid-template-columns:1.4fr 1fr 1fr;gap:40px;}}
+  footer a{color:var(--lilac);}
+  footer a:hover{color:var(--pink);}
+  footer .f-h{
+    font-family:'Jost',sans-serif;font-weight:500;font-size:10px;letter-spacing:2.5px;
+    text-transform:uppercase;color:var(--pink);margin-bottom:14px;
+  }
+  footer .f-list p, footer .f-list a{display:block;font-size:14px;line-height:1.5;margin-bottom:10px;color:#E7D3E1;}
+  footer .f-list a:hover{color:var(--pink);}
+  footer .f-bottom{
+    margin-top:52px;padding-top:22px;border-top:1px solid rgba(251,243,247,0.16);
+    display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;
+    font-size:12px;letter-spacing:.4px;color:rgba(231,211,225,0.7);
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="siteNav">
+  <div class="wrap">
+    <div class="nav-row">
+      <div class="nav-left">
+        <button class="icon-btn menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+          <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#services">Services</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#safety">Safety</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+      <a href="#top" class="wordmark">Fresno Fancy Faces</a>
+      <div class="nav-right">
+        <button class="icon-btn" id="themeToggle" aria-label="Switch to dark mode" title="Switch to dark mode">
+          <svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"></path></svg>
+        </button>
+        <a href="#booking" class="nav-cta">Book a party</a>
+      </div>
+    </div>
+  </div>
+  <div id="mobileMenu" aria-label="Mobile">
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#safety">Safety</a>
+    <a href="#contact">Contact</a>
+    <a href="#booking" class="mm-cta">Book a party →</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" aria-label="Introduction">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Face painting + balloon twisting / Fresno, CA</p>
+          <h1>Party faces and festival moments, made to remember.</h1>
+          <p class="lead">DeAnna paints faces and twists balloons for birthdays, school festivals, and community events across Fresno and approximately 60 miles in either direction. Cheek art to full faces — glitter, jewels, and gems optional.</p>
+          <div class="hero-actions">
+            <a class="btn" href="mailto:fresnofancyfaces@yahoo.com">Email to book</a>
+            <a class="btn btn--ghost" href="tel:+15592604049">Call (559) 260-4049</a>
+          </div>
+          <p class="hero-trust">Licensed, Bonded and Insured</p>
+        </div>
+        <figure class="hero-media" style="margin:0;">
+          <img src="images/gallery/face-painting-firefox.jpg" alt="A child at a park wearing a full-face leopard design painted in gold and brown with glitter accents." width="800" height="800">
+          <figcaption>A full-face design, finished with a touch of glitter.</figcaption>
+        </figure>
+      </div>
+
+      <!-- Proof strip -->
+      <div class="proof">
+        <div class="proof-row">
+          <div class="proof-item"><span class="dot" aria-hidden="true"></span>Cheek art to full faces</div>
+          <div class="proof-item"><span class="dot" aria-hidden="true"></span>Optional glitter + jewels</div>
+          <div class="proof-item"><span class="dot" aria-hidden="true"></span>Fresno + 60 miles</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES ================= -->
+  <section id="services" class="band">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="num">01</span>
+        <h2>What DeAnna brings</h2>
+        <span class="rule" aria-hidden="true"></span>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <p class="eyebrow">Face painting</p>
+          <h3>Cheek art to full faces</h3>
+          <p>Simple cheek designs for a quick line, or full-face looks for the guest of honor — with optional glitter, jewels, and gems. Painted with skin-friendly, cosmetic-grade color.</p>
+          <a class="arrow-link" href="mailto:fresnofancyfaces@yahoo.com">Email to book <span class="arw" aria-hidden="true">&rarr;</span></a>
+        </div>
+        <div class="card">
+          <p class="eyebrow">Balloon twisting</p>
+          <h3>Twisted on the spot</h3>
+          <p>Swords, flowers, animals, and hats made while guests watch. A lively add-on that keeps the party line moving, or booked on its own for festivals and events.</p>
+          <a class="arrow-link" href="mailto:fresnofancyfaces@yahoo.com">Ask about balloons <span class="arw" aria-hidden="true">&rarr;</span></a>
+        </div>
+        <div class="card">
+          <p class="eyebrow">Event bookings</p>
+          <h3>Parties &amp; festivals</h3>
+          <p>Birthdays, school festivals, and community events across Fresno and about 60 miles in either direction. Travel fees may apply depending on your location.</p>
+          <a class="arrow-link" href="#booking">Check your date <span class="arw" aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SAFETY ================= -->
+  <section id="safety" class="band safety">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="num">02</span>
+        <h2>Safe to wear, easy to wash off</h2>
+        <span class="rule" aria-hidden="true"></span>
+      </div>
+      <p class="safety-lead">The paint on a child&rsquo;s face should be the least of a parent&rsquo;s worries. Here is exactly what DeAnna uses and how it comes off.</p>
+      <div class="steps">
+        <div class="step">
+          <p class="mk">01</p>
+          <p><strong>Non-toxic, hypoallergenic, and fragrance-free.</strong> Made with ingredients compliant with EU and FDA toy and cosmetic regulations.</p>
+        </div>
+        <div class="step">
+          <p class="mk">02</p>
+          <p><strong>Named product lines.</strong> Mehron, Paradise, Wolfe FX, and Snazaroo are the product lines mentioned by Fresno Fancy Faces.</p>
+        </div>
+        <div class="step">
+          <p class="mk">03</p>
+          <p><strong>Removes with warm water or a baby wipe.</strong> No harsh scrubbing needed at the end of the day.</p>
+        </div>
+      </div>
+      <p class="safety-note">Please let DeAnna know about any known skin sensitivities or allergies before the event so she can plan accordingly.</p>
+    </div>
+  </section>
+
+  <!-- ================= GALLERY ================= -->
+  <section id="gallery" class="band">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="num">03</span>
+        <h2>Real faces, real parties</h2>
+        <span class="rule" aria-hidden="true"></span>
+      </div>
+      <p class="gallery-intro">Every design below was painted or twisted by DeAnna at a Fresno-area event. Select any photo to view it larger.</p>
+      <div class="grid-masonry" id="galleryGrid">
+        <button type="button" class="shot" data-full="images/gallery/face-painting-explorer.jpg" data-cap="Snow-leopard eye design with glitter and gems.">
+          <img src="images/gallery/face-painting-explorer.jpg" alt="A child with a blue-and-black snow-leopard design painted around one eye, finished with glitter." loading="lazy">
+          <figcaption>Snow-leopard eye design with glitter.</figcaption>
+        </button>
+        <button type="button" class="shot" data-full="images/gallery/face-painting-floral.jpg" data-cap="Pink-and-white floral face paint at a colorful indoor event.">
+          <img src="images/gallery/face-painting-floral.jpg" alt="A young girl with pink-and-white floral face paint, white swirls, dots, and glitter accents at an indoor event." loading="lazy">
+          <figcaption>Pink-and-white floral face paint.</figcaption>
+        </button>
+        <button type="button" class="shot" data-full="images/gallery/client-event-group.png" data-cap="Face painting and balloon fun at a Fresno Fancy Faces event.">
+          <img src="images/gallery/client-event-group.png" alt="A cheerful group of children with colorful face paint and balloon creations at a Fresno Fancy Faces event." loading="lazy">
+          <figcaption>Face painting and balloon fun.</figcaption>
+        </button>
+        <button type="button" class="shot" data-full="images/gallery/face-painting-butterfly.jpg" data-cap="Colorful blue and purple butterfly-inspired face paint.">
+          <img src="images/gallery/face-painting-butterfly.jpg" alt="A smiling child with blue, turquoise, purple, and white butterfly-inspired face paint around the eyes, forehead, and cheeks." loading="lazy">
+          <figcaption>Blue-and-purple butterfly design.</figcaption>
+        </button>
+        <button type="button" class="shot" data-full="images/gallery/face-painting-firefox.jpg" data-cap="A full-face leopard design in gold and brown with glitter.">
+          <img src="images/gallery/face-painting-firefox.jpg" alt="A child at a park with a full-face gold-and-brown leopard design with glitter accents." loading="lazy">
+          <figcaption>A full-face design, finished with glitter.</figcaption>
+        </button>
+        <button type="button" class="shot" data-full="images/gallery/balloon-twisting-poodle.jpg" data-cap="Pirate face paint paired with a twisted balloon.">
+          <img src="images/gallery/balloon-twisting-poodle.jpg" alt="A young guest with a red pirate bandana, painted mustache, and a balloon at an event." loading="lazy">
+          <figcaption>Pirate face paint with a balloon.</figcaption>
+        </button>
+        <button type="button" class="shot" data-full="images/gallery/face-painting-friends.jpg" data-cap="Two children showing off colorful bow and animal-themed face paint.">
+          <img src="images/gallery/face-painting-friends.jpg" alt="Two smiling children showing colorful bow and animal-themed face paint at an indoor event." loading="lazy">
+          <figcaption>Colorful face paint for two.</figcaption>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHAT FAMILIES REMEMBER ================= -->
+  <section class="band" aria-label="What families remember" style="background:var(--surface);border-top:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft);">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="num">04</span>
+        <h2>What families remember</h2>
+        <span class="rule" aria-hidden="true"></span>
+      </div>
+      <div class="remember">
+        <div class="item">
+          <h3>Designs that fit the day</h3>
+          <p>Quick cheek art keeps a long line moving; a full face turns the birthday guest of honor into the star of the party.</p>
+        </div>
+        <div class="item">
+          <h3>Comfort comes first</h3>
+          <p>Skin-friendly paints that are non-toxic, hypoallergenic, and fragrance-free, and that wash off with warm water or a baby wipe.</p>
+        </div>
+        <div class="item">
+          <h3>More than paint</h3>
+          <p>Balloon twisting adds a second bit of magic — and sends younger guests home holding something they watched come to life.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICE AREA + CONTACT ================= -->
+  <section id="contact" class="band">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="num">05</span>
+        <h2>Where DeAnna travels</h2>
+        <span class="rule" aria-hidden="true"></span>
+      </div>
+      <div class="area-grid">
+        <div class="area-copy">
+          <p>Based in Fresno, CA, Fresno Fancy Faces serves the city and approximately 60 miles in either direction — birthdays at home, festivals at the school, and events in the wider Central Valley.</p>
+          <p>Travel fees may apply depending on your location. Email or call DeAnna to confirm your area and check the date you have in mind.</p>
+          <div class="contact-actions">
+            <a class="btn" href="mailto:fresnofancyfaces@yahoo.com">Email to reserve</a>
+            <a class="btn btn--ghost" href="tel:+15592604049">Call DeAnna</a>
+          </div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-lines">
+            <a href="mailto:fresnofancyfaces@yahoo.com"><span class="lbl">Email</span><span>fresnofancyfaces@yahoo.com</span></a>
+            <a href="tel:+15592604049"><span class="lbl">Phone</span><span>(559) 260-4049</span></a>
+            <div class="cl"><span class="lbl">Area</span><span>Fresno + approx. 60 miles</span></div>
+            <a href="https://www.facebook.com/fresnofancyfaces" target="_blank" rel="noopener noreferrer"><span class="lbl">Social</span><span>facebook.com/fresnofancyfaces</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BOOKING ================= -->
+  <section id="booking" class="band" style="background:var(--surface);border-top:1px solid var(--rule-soft);">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="num">06</span>
+        <h2>Start your booking</h2>
+        <span class="rule" aria-hidden="true"></span>
+      </div>
+      <div class="area-grid">
+        <div class="area-copy">
+          <p>Tell DeAnna about your event and she&rsquo;ll get back to you with availability and a quote. The more you can share about the date, the age of the guests, and the kind of party, the faster she can help.</p>
+          <p>Prefer to talk it through? Email <a href="mailto:fresnofancyfaces@yahoo.com" style="border-bottom:1px solid var(--lilac);">fresnofancyfaces@yahoo.com</a> or call <a href="tel:+15592604049" style="border-bottom:1px solid var(--lilac);">(559) 260-4049</a>.</p>
+        </div>
+        <div class="booking-card">
+          <p class="form-note">This form prepares your request on your device only — it does not send anything on its own. To reserve your date, please also email <strong>fresnofancyfaces@yahoo.com</strong>.</p>
+          <form id="bookingForm" novalidate>
+            <div class="field" id="f-name">
+              <label for="in-name">Your name <span class="req">*</span></label>
+              <input type="text" id="in-name" name="name" autocomplete="name">
+              <span class="err" data-for="in-name"></span>
+            </div>
+            <div class="form-two">
+              <div class="field" id="f-email">
+                <label for="in-email">Email <span class="req">*</span></label>
+                <input type="email" id="in-email" name="email" autocomplete="email">
+                <span class="err" data-for="in-email"></span>
+              </div>
+              <div class="field" id="f-date">
+                <label for="in-date">Event date <span class="req">*</span></label>
+                <input type="date" id="in-date" name="date">
+                <span class="err" data-for="in-date"></span>
+              </div>
+            </div>
+            <div class="form-two">
+              <div class="field" id="f-type">
+                <label for="in-type">Event type <span class="req">*</span></label>
+                <select id="in-type" name="eventType">
+                  <option value="">Please choose&hellip;</option>
+                  <option>Birthday party</option>
+                  <option>School festival</option>
+                  <option>Community event</option>
+                  <option>Other celebration</option>
+                </select>
+                <span class="err" data-for="in-type"></span>
+              </div>
+              <div class="field" id="f-guests">
+                <label for="in-guests">Guest count <span style="color:var(--text);opacity:.6;">(optional)</span></label>
+                <input type="number" id="in-guests" name="guests" min="0" inputmode="numeric">
+                <span class="err" data-for="in-guests"></span>
+              </div>
+            </div>
+            <div class="field" id="f-details">
+              <label for="in-details">Details <span style="color:var(--text);opacity:.6;">(optional)</span></label>
+              <textarea id="in-details" name="details" placeholder="Location, ages, face painting or balloons, and anything else that helps."></textarea>
+              <span class="err" data-for="in-details"></span>
+            </div>
+            <button type="submit" class="btn" style="width:100%;justify-content:center;">Prepare my request</button>
+            <div class="form-success" id="formSuccess" role="status" aria-live="polite">
+              <strong>Your request is prepared locally.</strong> Nothing has been sent yet. To reserve the date, please also email <a href="mailto:fresnofancyfaces@yahoo.com">fresnofancyfaces@yahoo.com</a> or call (559) 260-4049.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <p class="eyebrow f-eyebrow">Face painting &amp; balloon twisting</p>
+    <p class="f-word">Fresno Fancy Faces</p>
+    <div class="f-grid">
+      <div class="f-list">
+        <p class="f-h">The work</p>
+        <p>Face painting from simple cheek art to full faces, with optional glitter, jewels, and gems, plus balloon twisting for parties and festivals.</p>
+      </div>
+      <div class="f-list">
+        <p class="f-h">Contact</p>
+        <a href="mailto:fresnofancyfaces@yahoo.com">fresnofancyfaces@yahoo.com</a>
+        <a href="tel:+15592604049">(559) 260-4049</a>
+        <a href="https://www.facebook.com/fresnofancyfaces" target="_blank" rel="noopener noreferrer">facebook.com/fresnofancyfaces</a>
+      </div>
+      <div class="f-list">
+        <p class="f-h">Service area</p>
+        <p>Fresno, CA</p>
+        <p>Fresno and approximately 60 miles in either direction. Travel fees may apply.</p>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>&copy; <span id="year"></span> Fresno Fancy Faces &middot; Fresno, CA</span>
+      <span>Made to remember.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= LIGHTBOX ================= -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close photo viewer">Close</button>
+  <div class="lightbox-inner">
+    <img id="lightboxImg" src="" alt="">
+    <p class="lightbox-cap" id="lightboxCap"></p>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- Current year ---------- */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---------- Theme (light default, one localStorage key) ---------- */
+  var THEME_KEY = 'fff-theme';
+  var root = document.documentElement;
+  var themeBtn = document.getElementById('themeToggle');
+  var moonIcon = '<svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"></path></svg>';
+  var sunIcon = '<svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>';
+
+  function applyTheme(mode){
+    root.setAttribute('data-theme', mode);
+    var toDark = (mode === 'light'); // button switches to the OTHER mode
+    var label = toDark ? 'Switch to dark mode' : 'Switch to light mode';
+    themeBtn.innerHTML = toDark ? moonIcon : sunIcon;
+    themeBtn.setAttribute('aria-label', label);
+    themeBtn.setAttribute('title', label);
+  }
+  var stored = null;
+  try { stored = localStorage.getItem(THEME_KEY); } catch(e){}
+  applyTheme(stored === 'dark' ? 'dark' : 'light'); // light default regardless of OS
+
+  themeBtn.addEventListener('click', function(){
+    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+    try { localStorage.setItem(THEME_KEY, next); } catch(e){}
+  });
+
+  /* ---------- Sticky nav frosted state ---------- */
+  var nav = document.getElementById('siteNav');
+  function onScroll(){
+    if (window.scrollY > 40) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  /* ---------- Mobile menu ---------- */
+  var menuToggle = document.getElementById('menuToggle');
+  var mobileMenu = document.getElementById('mobileMenu');
+  function closeMenu(){
+    mobileMenu.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded','false');
+    menuToggle.setAttribute('aria-label','Open menu');
+  }
+  menuToggle.addEventListener('click', function(){
+    var open = mobileMenu.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', String(open));
+    menuToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+  mobileMenu.addEventListener('click', function(e){
+    if (e.target.tagName === 'A') closeMenu();
+  });
+
+  /* ---------- Lightbox ---------- */
+  var lightbox = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightboxImg');
+  var lbCap = document.getElementById('lightboxCap');
+  var lbClose = document.getElementById('lightboxClose');
+  var lastTrigger = null;
+
+  function openLightbox(trigger){
+    var full = trigger.getAttribute('data-full');
+    var cap = trigger.getAttribute('data-cap') || '';
+    var innerImg = trigger.querySelector('img');
+    lbImg.src = full;
+    lbImg.alt = innerImg ? innerImg.alt : cap;
+    lbCap.textContent = cap;
+    lastTrigger = trigger;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    lbClose.focus();
+  }
+  function closeLightbox(){
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+    if (lastTrigger){ lastTrigger.focus(); lastTrigger = null; }
+  }
+
+  var shots = document.querySelectorAll('.shot');
+  for (var i=0;i<shots.length;i++){
+    shots[i].addEventListener('click', function(){ openLightbox(this); });
+  }
+  lbClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', function(e){
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape'){
+      if (lightbox.classList.contains('open')) closeLightbox();
+      else if (mobileMenu.classList.contains('open')) closeMenu();
+    }
+  });
+
+  /* ---------- Booking form (local demo only) ---------- */
+  var form = document.getElementById('bookingForm');
+  var success = document.getElementById('formSuccess');
+
+  function setError(fieldId, msg){
+    var field = document.getElementById(fieldId);
+    var input = field.querySelector('input,select,textarea');
+    var err = field.querySelector('.err');
+    if (msg){
+      field.classList.add('invalid');
+      if (input) input.setAttribute('aria-invalid','true');
+      err.textContent = msg;
+    } else {
+      field.classList.remove('invalid');
+      if (input) input.removeAttribute('aria-invalid');
+      err.textContent = '';
+    }
+  }
+
+  function validEmail(v){
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault(); // never send data anywhere
+    success.classList.remove('show');
+
+    var ok = true;
+    var name = document.getElementById('in-name').value.trim();
+    var email = document.getElementById('in-email').value.trim();
+    var date = document.getElementById('in-date').value.trim();
+    var type = document.getElementById('in-type').value.trim();
+
+    if (!name){ setError('f-name','Please add your name.'); ok = false; } else setError('f-name','');
+    if (!email){ setError('f-email','Please add an email.'); ok = false; }
+    else if (!validEmail(email)){ setError('f-email','Please check this email address.'); ok = false; }
+    else setError('f-email','');
+    if (!date){ setError('f-date','Please choose a date.'); ok = false; } else setError('f-date','');
+    if (!type){ setError('f-type','Please pick an event type.'); ok = false; } else setError('f-type','');
+
+    if (!ok){
+      var firstInvalid = form.querySelector('.invalid input, .invalid select, .invalid textarea');
+      if (firstInvalid) firstInvalid.focus();
+      return;
+    }
+
+    success.classList.add('show');
+    form.reset();
+    success.setAttribute('tabindex','-1');
+    success.focus();
+  });
+
+  /* Clear a field's error as the visitor fixes it */
+  form.addEventListener('input', function(e){
+    var field = e.target.closest('.field');
+    if (field && field.classList.contains('invalid')){
+      field.classList.remove('invalid');
+      var err = field.querySelector('.err');
+      if (err) err.textContent = '';
+      e.target.removeAttribute('aria-invalid');
+    }
+  });
+
+})();
+</script>
+</body>
+</html>
