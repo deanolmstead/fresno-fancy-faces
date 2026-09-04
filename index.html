@@ -260,6 +260,11 @@
     .hero-media img{height:560px;}
   }
   .hero-copy .eyebrow{margin-bottom:22px;}
+  .hero-socials{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin:0 0 34px;}
+  .hero-socials a{display:inline-flex;align-items:center;gap:8px;color:var(--action);font-family:'Jost',sans-serif;font-weight:500;font-size:11px;letter-spacing:1.8px;text-transform:uppercase;transition:color .2s var(--ease);}
+  .hero-socials a:hover{color:var(--action-hover);}
+  .social-icon{display:block;width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+  .social-icon--facebook{fill:currentColor;stroke:none;}
   .hero-copy h1{font-size:clamp(38px,6vw,60px);line-height:1.05;letter-spacing:-1px;}
   .hero-copy p.lead{
     margin-top:24px;max-width:var(--measure);
@@ -516,6 +521,16 @@
     <div class="wrap">
       <div class="hero-grid">
         <div class="hero-copy">
+          <div class="hero-socials" aria-label="Follow Fresno Fancy Faces">
+            <a href="https://www.instagram.com/fresnofancyfaces/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Follow Fresno Fancy Faces on Instagram">
+              <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"></circle></svg>
+              <span>Instagram</span>
+            </a>
+            <a href="https://www.facebook.com/fresnofancyfaces" target="_blank" rel="noopener noreferrer" aria-label="Follow Fresno Fancy Faces on Facebook">
+              <svg class="social-icon social-icon--facebook" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3c-3.3 0-5 1.9-5 5v3H6v4h3v4h4v-4h3.2l.8-4H13V9c0-.7.3-1 1-1Z"></path></svg>
+              <span>Facebook</span>
+            </a>
+          </div>
           <p class="eyebrow">Face painting / Fresno, CA</p>
           <h1>Party faces and festival moments, made to remember.</h1>
           <p class="lead">DeAnna paints faces for birthdays, school festivals, and community events across Fresno and approximately 60 miles in either direction. Cheek art to full faces — glitter, jewels, and gems optional.</p>
