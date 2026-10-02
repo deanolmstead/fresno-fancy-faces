@@ -754,7 +754,7 @@
               <span class="err" data-for="in-name"></span>
             </div>
             <div class="field" id="f-phone">
-              <label for="in-phone">Phone <span style="color:var(--text);opacity:.6;">(optional)</span></label>
+              <label for="in-phone">Phone <span class="req">*</span></label>
               <input type="tel" id="in-phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="(559) 555-0123">
               <span class="err" data-for="in-phone"></span>
             </div>
@@ -982,7 +982,8 @@
     var type = document.getElementById('in-type').value.trim();
 
     if (!name){ setError('f-name','Please add your name.'); ok = false; } else setError('f-name','');
-    if (phone && !/^[\d\s().+\-x]{7,}$/.test(phone)){ setError('f-phone','Please check this phone number.'); ok = false; }
+    if (!phone){ setError('f-phone','Please add a phone number.'); ok = false; }
+    else if (!/^[\d\s().+\-x]{7,}$/.test(phone)){ setError('f-phone','Please check this phone number.'); ok = false; }
     else setError('f-phone','');
     if (!email){ setError('f-email','Please add an email.'); ok = false; }
     else if (!validEmail(email)){ setError('f-email','Please check this email address.'); ok = false; }
